@@ -1,0 +1,316 @@
+.eq {
+  display: none !important;
+}
+
+@font-face {
+  font-family: TitleFont;
+  src: url("Playball-Regular.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  background-color: #345995;
+  width: 100vw;
+  height: 100vh;
+}
+
+html header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+html header img {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+html header .header-content {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+html header .header-content #buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+html header .header-content #buttons a,
+html header .header-content #buttons button {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  color: #345995;
+  background: #fff;
+  padding: 25px;
+  display: inline-block;
+  width: 210px !important;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+html header .header-content #buttons a:hover,
+html header .header-content #buttons button:hover {
+  background: #345995;
+  color: #fff;
+  -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
+}
+
+html header h1 {
+  font-family: TitleFont, cursive;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 6rem;
+  margin-bottom: 60px;
+}
+
+html header h2 {
+  font-family: TitleFont, cursive;
+  color: red;
+  font-weight: 200;
+  font-size: 2rem;
+  margin-top: 10px;
+  -webkit-text-stroke: 0.3px #fff;
+}
+
+html body {
+  overflow-y: hidden;
+}
+
+#admin-button {
+  position: absolute;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  color: #345995;
+  background: #fff;
+  padding: 15px;
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  right: 30px;
+  bottom: 30px;
+}
+
+#admin-button:hover {
+  background: #345995;
+  color: #fff;
+  -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
+}
+
+#copyright {
+  position: absolute;
+  color: white;
+  opacity: 0.5;
+  bottom: 15px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.popupform {
+  color: black;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+  position: fixed;
+  z-index: 5000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popupform .content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 100%;
+  max-width: 500px;
+  padding: 35px;
+}
+
+.popupform .content .imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+.popupform .content .imgcontainer h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.popupform .content .imgcontainer .close {
+  position: absolute;
+  right: -20px;
+  top: -50px;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.popupform .content .imgcontainer .close:hover, .popupform .content .imgcontainer .close:focus {
+  color: #FB4D3D;
+  cursor: pointer;
+}
+
+.popupform .content .container {
+  padding: 16px;
+}
+
+.popupform .content .container input[type="text"],
+.popupform .content .container input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.popupform .content .container #submit-button {
+  background-color: #345995;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.popupform .content .container #submit-button:hover {
+  opacity: 0.8;
+}
+
+.contenterror {
+  background-color: #FB4D3D !important;
+  color: #fefefe;
+}
+
+.contenterror .close {
+  position: absolute;
+  right: -20px;
+  top: -50px;
+  color: #fefefe !important;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.contenterror .close:hover, .contenterror .close:focus {
+  color: #a54e4e !important;
+  cursor: pointer;
+}
+
+.contentsuccess {
+  background-color: #79B772 !important;
+  color: #fefefe;
+}
+
+.contentsuccess .close {
+  position: absolute;
+  right: -20px;
+  top: -50px;
+  color: #fefefe !important;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.contentsuccess .close:hover, .contentsuccess .close:focus {
+  color: #79B772 !important;
+  cursor: pointer;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  header h1 {
+    font-size: 4.2rem;
+  }
+}
+/*# sourceMappingURL=styles_index.css.map */

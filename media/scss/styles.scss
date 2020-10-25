@@ -1,0 +1,1105 @@
+@import "variables";
+
+// E-N-D-O-R-A
+.eq {
+  display: none;
+}
+
+// Hlavní
+a {
+  text-decoration: none;
+  color: black;
+}
+h1 {
+  color: red;
+  font-size: 16px;
+}
+body {
+  background-color: color(body-bg-color);
+  color: white;
+}
+
+img {
+  image-rendering: optimizeQuality;
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+// Vyskakovací okno
+.popupform {
+  color: black;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  position: fixed;
+  z-index: 5000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  .content {
+    background-color: #fefefe;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 500px;
+    padding: 35px;
+    h1 {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+    // Objednávkový formulář <- modal-content
+    .order-form {
+      text-align: center;
+      #order-form-seats {
+        text-align: center;
+        padding-top: 15px;
+        color: color(gym-border-color);
+      }
+    }
+  }
+  .seat-text {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: color(my-green);
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  .submit-button {
+    background-color: #345995;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+    .close {
+      position: absolute;
+      right: -20px;
+      top: -50px;
+      color: #000;
+      font-size: 35px;
+      font-weight: bold;
+      &:hover,
+      &:focus {
+        color: color(my-red);
+        cursor: pointer;
+      }
+    }
+  }
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  h1 {
+    color: black;
+    font-size: 26px;
+  }
+}
+
+.orderform {
+  color: black;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: none;
+  position: fixed;
+  z-index: 5000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  .content {
+    background-color: #fefefe;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 500px;
+    padding: 45px 40px;
+    position: relative;
+    overflow: hidden;
+    h1 {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -ms-flex-line-pack: center;
+      align-content: center;
+      margin: 0;
+      margin-bottom: 18px;
+      color: black;
+      font-size: 26px;
+    }
+    .order-form {
+      text-align: center;
+      #order-form-seats {
+        text-align: center;
+        padding-top: 15px;
+        color: #222222;
+      }
+    }
+    .seat-text {
+      position: relative;
+      width: 72px;
+      padding: 7px 18px;
+      //margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #fff;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      text-align: center;
+      background-color: #79b772;
+      z-index: 5000;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    input[type="text"] {
+      margin-bottom: 20px;
+    }
+    #submit-button {
+      background-color: #345995;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    .imgcontainer {
+      text-align: center;
+      position: relative;
+      .close {
+        position: absolute;
+        right: -20px;
+        top: -50px;
+        color: #000;
+        font-size: 35px;
+        font-weight: bold;
+        margin-top: 15px;
+        &:hover,
+        &:focus {
+          color: #fb4d3d;
+          cursor: pointer;
+        }
+      }
+    }
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+  }
+}
+
+.order-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+}
+.first-col {
+  text-align: left;
+  align-self: center;
+}
+.second-col {
+  margin-left: 50px;
+  img {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: -5px;
+    opacity: 0.6;
+    width: 140px;
+    z-index: 4000;
+  }
+}
+
+.contenterror {
+  background-color: color(my-red) !important;
+  color: #fefefe;
+  .close {
+    position: absolute;
+    right: -20px;
+    top: -50px;
+    color: #fefefe !important;
+    font-size: 35px;
+    font-weight: bold;
+    &:hover,
+    &:focus {
+      color: rgb(165, 78, 78) !important;
+      cursor: pointer;
+    }
+  }
+}
+
+.contentsuccess {
+  background-color: color(my-green) !important;
+  color: #fefefe;
+  .close {
+    position: absolute;
+    right: -20px;
+    top: -50px;
+    color: #fefefe !important;
+    font-size: 35px;
+    font-weight: bold;
+    &:hover,
+    &:focus {
+      color: color(my-green) !important;
+      cursor: pointer;
+    }
+  }
+}
+
+.infographics {
+  background-color: color(body-bg-color) !important;
+  width: auto !important;
+  max-width: 1000px !important;
+  padding: 0px !important;
+  .close {
+    right: 15px !important;
+    top: -15px !important;
+    color: white !important;
+    &:hover,
+    &:focus {
+      color: color(my-red) !important;
+    }
+  }
+}
+
+#add-form-container {
+  .order-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .container-input {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    label {
+      font-size: 15px;
+      font-weight: normal !important;
+      padding: 10px;
+      width: 100px;
+      text-align: left;
+    }
+    input,
+    .add-select,
+    .add-direction {
+      height: 30px;
+      width: 70px;
+      text-align: center;
+    }
+    .submit-button {
+      margin-top: 30px;
+    }
+  }
+}
+
+#update-form-container {
+  .content {
+    max-width: 700px;
+    .edit-seat-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .order-form {
+      input,
+      select {
+        margin: 1px;
+        height: 25px;
+        border: 1px solid color(my-blue);
+        text-align: center;
+      }
+      .edit-seat-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        label {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 18px;
+          color: gray;
+          height: 25px;
+          margin-right: 5px;
+          width: 20px;
+        }
+      }
+      #add-button,
+      .remove-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        width: 25px;
+        height: 25px;
+        border-radius: 15%;
+        background-color: color(my-blue);
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+        &:hover {
+          background-color: green;
+          color: white;
+        }
+      }
+      .remove-button {
+        margin: 0px;
+        margin-left: 5px;
+        background-color: color(my-red);
+        &:hover {
+          background-color: red;
+        }
+        .row-span {
+          width: 100%;
+          height: 100%;
+          line-height: 21px;
+        }
+      }
+      #add-button {
+        .row-span {
+          width: 100%;
+          height: 100%;
+          line-height: 25px;
+        }
+      }
+      .container-inputs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        .container-input {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          padding-left: 10px;
+          padding-right: 10px;
+          label {
+            padding-left: 5px;
+            padding-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animace vyskakovacího okna
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0.1);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes animatezoom {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@media screen and (max-width: 500px) {
+  header h1 {
+    font-size: 4.2rem;
+  }
+}
+
+// Lišta MENU
+#menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  background-color: #404040;
+  color: color(my-green);
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  #menu-save-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    form {
+      margin: 0;
+    }
+    .save-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100px;
+      height: 50px;
+      background-color: color(my-blue);
+      color: white;
+      border: 2px solid transparent;
+      padding: 0px;
+      cursor: pointer;
+      transition-duration: 0.5s;
+      font-size: 16px;
+      margin: 0;
+    }
+    .collision-checkbox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: white;
+      padding-left: 15px;
+      cursor: pointer;
+      font-size: 13px;
+      user-select: none;
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 5px;
+      }
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+      .checkmark {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        background-color: color(body-bg-color);
+      }
+      &:hover input ~ .checkmark {
+        background-color: #ccc;
+      }
+
+      input:checked ~ .checkmark {
+        background-color: color(my-blue);
+      }
+
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      .checkmark:after {
+        left: 5px;
+        top: 2px;
+        width: 4px;
+        height: 8px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+    #menu-state-container {
+      display: flex;
+      align-items: center;
+      cursor: default;
+      img {
+        display: flex;
+        height: 20px;
+        margin-left: 20px;
+      }
+      p {
+        display: flex;
+        margin-left: 20px;
+      }
+    }
+  }
+  #menu-control-container {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    .menu {
+      position: relative;
+      display: block;
+      color: white;
+      margin-top: 15px;
+      margin-left: 20px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 18px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      a {
+        color: white;
+        &:active {
+          color: color(my-blue);
+        }
+      }
+      i {
+        font-size: 30px;
+        &:hover {
+          text-shadow: 0 0 10px black;
+        }
+      }
+      .radio-button,
+      .radio-button-input {
+        position: absolute;
+        opacity: 0;
+      }
+
+      input {
+        &:checked + i {
+          color: color(my-blue);
+          text-shadow: 0 0 10px black;
+        }
+      }
+    }
+  }
+}
+
+/* Pomocná lišta pod menu  <- DODĚLAT*/
+.help-container-description {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 5px;
+  color: darken(white, 25%);
+  .order-button {
+    position: relative;
+    width: 100px;
+    //height: 35px;
+    background-color: color(my-blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    border: 1px solid darken(white, 25%);
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    font-size: 16px;
+    margin-right: 18.68px;
+    &:hover {
+      background-color: white;
+      color: color(my-blue);
+    }
+  }
+}
+
+#help_with_order {
+  //color: color(my-yellow);
+  //margin-right: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+  user-select: none;
+  color: darken(white, 25%);
+  padding-bottom: 10px;
+  &:hover {
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+#help-container-row {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  padding: 10px;
+  a {
+    color: white;
+  }
+  .info,
+  .help {
+    display: none;
+    position: absolute;
+    color: white;
+    box-sizing: border-box;
+    background-color: #404040;
+    padding: 15px;
+    width: 220px;
+    z-index: 1000;
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      padding: 3px;
+    }
+  }
+  .info {
+    padding-left: 35px;
+    padding-right: 35px;
+    span {
+      margin-left: 5px;
+    }
+    li {
+      justify-content: flex-start;
+    }
+  }
+  .help {
+    padding-right: 35px;
+    margin-right: 10px;
+    right: 0px;
+    li {
+      justify-content: flex-end;
+    }
+    i {
+      margin-left: 10px;
+    }
+  }
+  .help-container {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 36px;
+    width: auto;
+    background-color: #404040;
+    color: white;
+    padding: 10px;
+    margin: 0px;
+    z-index: 1000;
+    i {
+      transition: 0.5s ease;
+      color: white;
+      &:hover {
+        color: color(my-blue);
+      }
+    }
+  }
+  .guest-margin-top {
+    margin-top: -40px !important;
+  }
+}
+
+.headerDivider {
+  border-left: 2px solid white;
+  height: 35px;
+  margin-left: 20px;
+  position: relative;
+}
+.helpDivider {
+  border-left: 150px solid color(body-bg-color);
+  height: 2px;
+  margin-left: 20px;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+// Sedadla na plátně
+/*
+.container-seat {
+    position: absolute;
+    width: size(button-size);
+    height: size(button-size);
+    font-size: size(button-font-size);
+    touch-action: none;
+    &:hover, &:focus {
+        outline: 5px solid red;
+        box-shadow: 0px 0px 10px black;
+    }
+    // Obsazenost
+    .seat-free,
+    .seat-reserved,
+    .seat-bought {
+        position: relative;
+        width: size(button-size);
+        height: size(button-size);
+        background-color: color(my-green);
+        color: black;
+        display: flex;
+        border: 1px solid color(body-bg-color);
+        padding: 0px;
+        transition-duration: 0.8s;
+        font-size: size(button-font-size);
+        justify-content: center;
+    }
+    .seat-free {
+        cursor: pointer;
+    }
+    .seat-reserved {
+        background-color: color(my-yellow);
+    }
+    .seat-bought {
+        background-color: color(my-red);
+    }
+
+    .selected {
+        border: 3px solid white !important;
+    }
+    .button-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 0 0 10px black;
+    }
+    // Editace
+    .edit {
+        display: none;
+        position: absolute;
+        width: size(button-size);
+        height: size(button-size);
+        margin: -25px 0px;
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
+        cursor: auto;
+        text-align: center;
+        vertical-align: middle;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+            color: white;
+            text-shadow: 0 0 10px black;
+            font-size: 19px;
+            opacity: 0.3;
+            &:hover {
+                font-size: 25px;
+                opacity: 1;
+            }
+        }
+
+    }
+    .edit-form {
+        display: none;
+        position: absolute;
+        background-color: #404040;
+        border: 2px solid color(my-blue);
+        margin-left: -95px;
+        margin-top: -1px;
+        width: 200px;
+        height: 100px;
+        align-items: center;
+        vertical-align: middle;
+        font-size: 16px;
+        padding: 5px;
+        padding-top: 30px;
+        //box-shadow: 0px 0px 3px black;
+        a {
+            display: inline-block;
+            font-size: 20px;
+            position: relative;
+            color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding: 10px;
+            box-shadow: none;
+            opacity: 0.5;
+            &:hover {
+                font-size: 20px;
+                color: color(my-blue);
+            }
+            &:nth-child(2) {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+*/
+/* Plátno - tělocvična */
+.canvas {
+  position: absolute;
+  width: 500px;
+  height: 600px;
+  background-color: color(body-bg-color);
+  color: white;
+  box-sizing: border-box;
+  outline: 4px solid color(gym-border-color);
+  z-index: 550; // 550
+  top: 50%;
+  left: 50%;
+  transition: all 0.2s ease-in-out;
+  transform: translate(-50%, -50%);
+  &:hover {
+    outline: 7px solid color(gym-border-color);
+  }
+}
+
+/* Grafika na plátně */
+.container-graphic,
+.container-button-graphic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //box-sizing: border-box;
+  position: absolute;
+  width: 50px;
+  font-size: 20px;
+  background-color: color(my-blue);
+  margin: 0 auto;
+  //border: 1px solid color(body-bg-color);
+  touch-action: none;
+  user-select: none;
+  span {
+    display: flex;
+    i {
+      display: flex;
+      padding: 5px;
+    }
+  }
+}
+/* Stůl na plátně */
+.container-table-TD,
+.container-table-LR {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: middle;
+  position: absolute;
+  font-size: 20px;
+  width: 50px;
+  height: auto;
+  margin: 0 auto;
+  touch-action: none;
+  user-select: none;
+  //transition: 1s;
+  transform: rotate(90px);
+  &:hover,
+  &:focus {
+    outline: 1px solid white;
+    .container-seat span {
+      opacity: 1;
+    }
+  }
+  .container-button-graphic {
+    position: relative;
+    cursor: move;
+  }
+  .container-seat {
+    display: flex;
+    justify-content: center;
+    align-items: middle;
+    position: relative;
+    width: size(button-size)-2;
+    height: size(button-size)-2;
+    font-size: size(button-font-size);
+    background-color: color(my-green);
+    touch-action: none;
+    margin: 1px;
+    color: black;
+    transition: 0.4s ease;
+    user-select: none;
+    //cursor: pointer;
+    span {
+      line-height: size(button-size);
+      //cursor: pointer;
+      opacity: 1; // <- změnit na 0 !!!!
+    }
+    &:hover,
+    &:focus {
+      outline: 1px solid white;
+    }
+  }
+  .edit-bg {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    background-color: rgba(52, 89, 149, 0.5);
+    cursor: pointer;
+    //height: 100%;
+    span {
+      font-size: 23px;
+    }
+    &:hover,
+    &:focus {
+      span {
+        font-size: 25px;
+      }
+    }
+  }
+}
+.container-table-LR {
+  width: auto;
+  height: 50px;
+  flex-direction: column;
+  .container-button-graphic {
+    position: relative;
+    width: 25px;
+    height: 50px;
+  }
+  .edit-bg {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: rgba(52, 89, 149, 0.5);
+    width: auto;
+  }
+}
+
+.selected {
+  //outline: 1px solid white;
+  background-color: white !important;
+}
+
+.seat-reserved {
+  background-color: color(my-yellow) !important;
+}
+.seat-bought {
+  background-color: color(my-red) !important;
+}
+
+// Přepínání pláten - Slideshow
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: 0 auto;
+  .mySlides {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: color(my-blue);
+    padding: 30px 30px;
+    width: auto;
+    height: 630px;
+    z-index: 550;
+  }
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    top: 50%;
+    width: auto;
+    margin-top: -15px;
+    padding: 15px 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    z-index: 600;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+  .next {
+    right: 0px;
+    border-radius: 3px 0 0 3px;
+  }
+  .text {
+    color: #f2f2f2;
+    font-size: 30px;
+    padding: 3px 0px;
+    position: absolute;
+    --bottom: 8px;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    font-weight: bold;
+  }
+}
+//  Tečky u plátna
+.dot-container {
+  display: absolute;
+  margin-top: 15px;
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    outline: 1px solid white;
+    outline: 1px solid #cccccc;
+    display: inline-block;
+    //transition: background-color 0.6s ease;
+  }
+  .active,
+  .dot:hover {
+    background-color: #717171;
+    background-color: color(my-blue) !important;
+    outline: 3px solid color(gym-border-color);
+    outline: 1px solid #cccccc;
+    height: 20px;
+    width: 15px;
+  }
+}
+
+/* Break Pointy */
+@media screen and (max-width: 869px) {
+  #menu-container {
+    height: auto;
+    flex-direction: column;
+  }
+  #menu-control-container {
+    justify-content: center;
+    width: 100%;
+  }
+}

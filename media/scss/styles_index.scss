@@ -1,0 +1,255 @@
+@import "variables";
+
+// E-N-D-O-R-A
+.eq {
+  display: none !important;
+}
+
+@font-face {
+  font-family: TitleFont;
+  src: url("Playball-Regular.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #345995;
+  width: 100vw;
+  height: 100vh;
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    img {
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+    .header-content {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      #buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        a,
+        button {
+          text-decoration: none;
+          text-transform: uppercase;
+          font-family: Arial, Helvetica, sans-serif;
+          letter-spacing: 1px;
+          color: #345995;
+          background: #fff;
+          padding: 25px;
+          display: inline-block;
+          width: 210px !important;
+          text-align: center;
+          border-radius: 4px;
+          font-size: 16px;
+          cursor: pointer;
+          border: none;
+          &:hover {
+            background: #345995;
+            color: #fff;
+            box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
+          }
+        }
+      }
+    }
+    h1 {
+      font-family: TitleFont, cursive;
+      user-select: none;
+      color: #fff;
+      font-weight: 400;
+      font-size: 6rem;
+      margin-bottom: 60px;
+    }
+    h2 {
+      font-family: TitleFont, cursive;
+      color: red;
+      font-weight: 200;
+      font-size: 2rem;
+      margin-top: 10px;
+      -webkit-text-stroke: 0.3px #fff;
+    }
+  }
+
+  body {
+    overflow-y: hidden;
+  }
+}
+
+#admin-button {
+  position: absolute;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  color: #345995;
+  background: #fff;
+  padding: 15px;
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  right: 30px;
+  bottom: 30px;
+  &:hover {
+    background: #345995;
+    color: #fff;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
+  }
+}
+#copyright {
+  position: absolute;
+  color: white;
+  opacity: 0.5;
+  bottom: 15px;
+  user-select: none;
+}
+
+.popupform {
+  color: black;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  position: fixed;
+  z-index: 5000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  .content {
+    background-color: #fefefe;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 500px;
+    padding: 35px;
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+      position: relative;
+      h1 {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+      .close {
+        position: absolute;
+        right: -20px;
+        top: -50px;
+        color: #000;
+        font-size: 35px;
+        font-weight: bold;
+        &:hover,
+        &:focus {
+          color: color(my-red);
+          cursor: pointer;
+        }
+      }
+    }
+    .container {
+      padding: 16px;
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      #submit-button {
+        background-color: #345995;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+.contenterror {
+  background-color: color(my-red) !important;
+  color: #fefefe;
+  .close {
+    position: absolute;
+    right: -20px;
+    top: -50px;
+    color: #fefefe !important;
+    font-size: 35px;
+    font-weight: bold;
+    &:hover,
+    &:focus {
+      color: rgb(165, 78, 78) !important;
+      cursor: pointer;
+    }
+  }
+}
+
+.contentsuccess {
+  background-color: color(my-green) !important;
+  color: #fefefe;
+  .close {
+    position: absolute;
+    right: -20px;
+    top: -50px;
+    color: #fefefe !important;
+    font-size: 35px;
+    font-weight: bold;
+    &:hover,
+    &:focus {
+      color: color(my-green) !important;
+      cursor: pointer;
+    }
+  }
+}
+
+// Animace vyskakovacího okna
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@media screen and (max-width: 500px) {
+  header h1 {
+    font-size: 4.2rem;
+  }
+}

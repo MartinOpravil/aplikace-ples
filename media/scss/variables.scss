@@ -1,0 +1,21 @@
+$colors:(
+    body-bg-color:#333333,
+    gym-border-color:#222222,
+    my-blue: #345995,
+    my-green: #79B772,
+    my-yellow: #F7F052,
+    my-red: #FB4D3D
+);
+
+$sizes:(
+    button-size: 25px,
+    button-font-size: 12px
+);
+
+@function color($color-name){
+    @return map-get($colors,$color-name);
+}
+
+@function size($size-name){
+    @return map-get($sizes,$size-name);
+}
