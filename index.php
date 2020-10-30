@@ -70,7 +70,7 @@
 
     <script>
         // Vyskakovací okno
-        var popupform = document.getElementById('popupform');
+        let popupform = document.getElementById('popupform');
 
         window.onclick = function(event) {
             if (event.target == popupform) {

@@ -56,14 +56,14 @@
             if ($_SESSION['ordered'] == true) {
                 ?>
                     <script>
-                        console.log("Úspěšně objednáno.");
+                        //console.log("Úspěšně objednáno.");
                         document.getElementById('order_success').style.display='flex';
                     </script>
                 <?php
             } else if ($_SESSION['ordered'] == false) {
                 ?>
                     <script>
-                        console.log("Chyba při objednání.");
+                        //console.log("Chyba při objednání.");
                         document.getElementById('order_failed').style.display='flex';
                     </script>
                 <?php
@@ -271,13 +271,13 @@
         // Grafika
         class graphic
         {
-            var $id;
-            var $x;
-            var $y;
-            var $width;
-            var $height;
-            var $icon;
-            var $canvas;
+            public $id;
+            public $x;
+            public $y;
+            public $width;
+            public $height;
+            public $icon;
+            public $canvas;
             
             function __construct($id,$x,$y,$width,$height,$icon,$canvas)
             {
@@ -312,12 +312,12 @@
         // STOLY
         class table
         {
-            var $id;
-            var $x;
-            var $y;
-            var $direction;
-            var $canvas;
-            var $number;
+            public $id;
+            public $x;
+            public $y;
+            public $direction;
+            public $canvas;
+            public $number;
             
             function __construct($id,$x,$y,$direction,$canvas,$number)
             {
@@ -351,12 +351,12 @@
         // SEDADLA
         class seat
         {
-            var $id;
-            var $state;
-            var $name;
-            var $email;
-            var $order_date;
-            var $table_id;
+            public $id;
+            public $state;
+            public $name;
+            public $email;
+            public $order_date;
+            public $table_id;
             
             function __construct($id,$state,$name,$email,$order_date,$table_id)
             {
@@ -390,17 +390,17 @@
 
     <script>
         // Maximální počet vybraných sedadel
-        max_number_of_selected_seats = 4;
+        const max_number_of_selected_seats = 4;
 
         // Zobraz obsazenost
-        var showOccupancy = getCookie("showOccupancy");
+        const showOccupancy = getCookie("showOccupancy");
         if (showOccupancy == "" || showOccupancy == "true") {
             $(document.getElementById("info")).slideToggle();
         }
 
         // Přepínej obsazenost
         function toggleInfo() {
-            var showOccupancy = getCookie("showOccupancy");
+            const showOccupancy = getCookie("showOccupancy");
             if (showOccupancy == "" || showOccupancy == "true") {
                 setCookie("showOccupancy", "false", 1);
                 $(document.getElementById("info")).slideToggle();
@@ -416,7 +416,7 @@
         }
 
         // Vyskakovací okno
-        var popupwindow = document.getElementById('popupform');
+        const popupwindow = document.getElementById('popupform');
         window.onclick = function(event) {
             if (event.target == popupwindow) {
                 popupwindow.style.display = "none";
@@ -425,11 +425,11 @@
 
         /* Zobrazení obsahu */
         // Převzatá pole objektů z PHP
-        var grafika = <?php echo json_encode($grafika) ?>;
-        var stoly = <?php echo json_encode($stoly) ?>;
-        var sedadla = <?php echo json_encode($sedadla) ?>;
+        const grafika = <?php echo json_encode($grafika) ?>;
+        const stoly = <?php echo json_encode($stoly) ?>;
+        const sedadla = <?php echo json_encode($sedadla) ?>;
         
-        var abeceda = ["A","B","C","D","E","F","G","H","I","J","K","L"];
+        const abeceda = ["A","B","C","D","E","F","G","H","I","J","K","L"];
 
         // Proveď
         generate_graphics();
@@ -437,24 +437,24 @@
 
         // Generování grafiky
         function generate_graphics() {
-            let length = grafika.length;
-            for (var i = 0; i < length; i++) {
+            const length = grafika.length;
+            for (let i = 0; i < length; i++) {
                 // objekt GRAPHIC
-                var graphic = grafika[i];
+                const graphic = grafika[i];
 
-                var container_graphic = document.createElement("DIV");
+                const container_graphic = document.createElement("DIV");
                 container_graphic.className = "container-graphic";
                 container_graphic.data = graphic;
 
                 // Ikona
-                var icon = document.createElement("SPAN");
+                const icon = document.createElement("SPAN");
                 icon.innerHTML = container_graphic.data.icon;
                 container_graphic.appendChild(icon);
                 // Přidá grafice pozici + "px"
-                var temp_x = container_graphic.data.x + "px";
-                var temp_y = container_graphic.data.y + "px";
-                var temp_width = container_graphic.data.width + "px";
-                var temp_height = container_graphic.data.height + "px";
+                let temp_x = container_graphic.data.x + "px";
+                let temp_y = container_graphic.data.y + "px";
+                let temp_width = container_graphic.data.width + "px";
+                let temp_height = container_graphic.data.height + "px";
                 container_graphic.style.left = temp_x;
                 container_graphic.style.top = temp_y;
                 container_graphic.style.width = temp_width;
@@ -476,47 +476,54 @@
         }
         //Generování stolů
         function generate_tables() {
-            let length = stoly.length;
+            const length = stoly.length;
             for (let i = 0; i < length; i++) {
-                let direction = stoly[i]["direction"];
+                const direction = stoly[i]["direction"];
                 // objekt TABLE
-                var table = stoly[i];
+                const table = stoly[i];
 
-                var container_table = document.createElement("DIV");
+                const container_table = document.createElement("DIV");
                 container_table.className = "container-table";
                 container_table.data = table;
                 // Přidá stolu pozici + "px"
-                var temp_x = container_table.data.x + "px";
-                var temp_y = container_table.data.y + "px";
+                let temp_x = container_table.data.x + "px";
+                let temp_y = container_table.data.y + "px";
                 container_table.style.left = temp_x;
                 container_table.style.top = temp_y;
 
                 // Číslo stolu
-                var container_number = document.createElement("DIV");
+                const container_number = document.createElement("DIV");
                 container_number.className = "container-button-graphic";
-                var icon = document.createElement("SPAN");
+                const icon = document.createElement("SPAN");
                 icon.innerHTML = container_table.data.number;
                 container_number.appendChild(icon);
                 container_table.appendChild(container_number);
+
+                // Vyfiltruje sedadla patřící tomuto stolu
+                const seats = sedadla.filter(function(seat) {
+                    return seat["table_id"] == container_table.data.id;
+                })
 
                 // Přiřadí správný směr stolu
                 if (direction == "T" || direction == "D") {
                     container_table.className = "container-table-TD";
                 } else {
                     container_table.className = "container-table-LR";
+
+                    let size = 25 + (25 * (seats.length/2));
+                    if (seats.length % 2) {
+                        size += 12.5;
+                    }
+                    container_table.style.width = size + "px";
                 }
-                // Vyfiltruje sedadla patřící tomuto stolu
-                let seats = sedadla.filter(function(seat) {
-                    return seat["table_id"] == container_table.data.id;
-                })
 
                 // Sedadlo
                 for (let i=0; i < seats.length; i++) {
-                    var container_seat = document.createElement("DIV");
+                    const container_seat = document.createElement("DIV");
                     container_seat.className = "container-seat";
                     container_seat.data = seats[i];
 
-                    var seat_span = document.createElement("SPAN");
+                    const seat_span = document.createElement("SPAN");
                     seat_span.innerHTML = abeceda[i];
                     container_seat.appendChild(seat_span);
 
@@ -534,7 +541,7 @@
                     }
 
                     container_seat.onclick = function() {
-                        let selected = document.querySelectorAll(".selected").length;
+                        const selected = document.querySelectorAll(".selected").length;
                         if (this.classList.contains("seat-free")) {
                             if (this.classList.contains("selected")) {
                                 this.classList.remove("selected");
@@ -567,8 +574,8 @@
         }
         // Vyplní objednávku
         function order() {
-            let selected = document.querySelectorAll(".selected");
-            let order_from_seats = document.getElementById("order-form-seats");
+            const selected = document.querySelectorAll(".selected");
+            const order_from_seats = document.getElementById("order-form-seats");
             order_from_seats.innerHTML = "";
             if (selected.length == 0) {
                 order_from_seats.style.color = "red";
@@ -576,18 +583,18 @@
             } else {
                 order_from_seats.style.color = "black";
                 selected.forEach((seat) => {
-                    let table = seat.parentElement;
-                    let table_number = table.data.number;
+                    const table = seat.parentElement;
+                    const table_number = table.data.number;
 
-                    let element = document.createElement("LABEL");
+                    const element = document.createElement("LABEL");
                     element.className = "seat-text";
                     element.innerHTML = table_number + "-" + seat.innerHTML; //element.innerHTML = seat.data.id;
                     
-                    let hidden_id = document.createElement("INPUT");
+                    const hidden_id = document.createElement("INPUT");
                     hidden_id.value = seat.data.id;
                     hidden_id.name = "seats_id[]";
                     hidden_id.type = "hidden";
-                    let hidden_text = document.createElement("INPUT");
+                    const hidden_text = document.createElement("INPUT");
                     hidden_text.value = table_number + "-" + seat.innerHTML;
                     hidden_text.name = "seats_text[]";
                     hidden_text.type = "hidden";
@@ -601,7 +608,7 @@
 
         // Změní css prvků (kvůli adminovi)
         function resetCss() {
-            let seats = document.querySelectorAll(".container-seat");
+            const seats = document.querySelectorAll(".container-seat");
             for (let i=0; i < seats.length; i++) {
                 seats[i].style.cursor = "pointer";
             }
@@ -626,8 +633,8 @@
         });
         
         // Aktivní canvas
-        var active_gym_temp = getCookie("active_gym");
-        var slideIndex;
+        const active_gym_temp = getCookie("active_gym");
+        let slideIndex;
         if (active_gym_temp != "") {
             slideIndex = active_gym_temp;
         } else {
@@ -652,8 +659,8 @@
 
         function showSlides(n) {
 
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("dot");
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
 
             if (n > slides.length) {
                 slideIndex = 1;
@@ -662,13 +669,13 @@
                 slideIndex = slides.length;
             }
 
-            var gyms = document.getElementById("canvas-container");
+            const gyms = document.getElementById("canvas-container");
 
-            for (var i = 0; i < slides.length; i++) {
+            for (let i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
                 gyms.children[i].style.zIndex = 500;
             }
-            for (var i = 0; i < dots.length; i++) {
+            for (let i = 0; i < dots.length; i++) {
                 dots[i].className = dots[i].className.replace(" active", "");
             }
             slides[slideIndex - 1].style.display = "flex";
@@ -681,17 +688,17 @@
 
         // COOKIES
         function setCookie(cname, cvalue, exdays) {
-            var d = new Date();
+            let d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            var expires = "expires=" + d.toUTCString();
+            let expires = "expires=" + d.toUTCString();
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
         function getCookie(cname) {
-            var name = cname + "=";
-            var decodedCookie = decodeURIComponent(document.cookie);
-            var ca = decodedCookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
                 while (c.charAt(0) == ' ') {
                     c = c.substring(1);
                 }
