@@ -1,21 +1,29 @@
 <?php
-function generatePassword($length) {
+
+function generatePassword() {
+    include("../../settings/settings.php");
+    $pass_string = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //36
+
     $password = "";
-    for ($i=0; $i < $length; $i++) {
-        $password .= random_int(0, 9);
+    for ($i=0; $i < $password_lenght; $i++) {
+        //$password .= random_int(0, 9);
+        $password .= substr($pass_string,random_int(0, 35),1);
     }
 
+    echo $password;
     // Zkontroluj zda heslo existuje, pokud ano, znovu zavolej funkci
     include("../_access/mysqli_connect.php");
     $sql = "SELECT * FROM sedadla WHERE code='$password'";
     if($vysledek = mysqli_query($link,$sql)) {
         if (!mysqli_num_rows($vysledek) == 0) {
-            generatePassword($length);
+            generatePassword();
         } else {
             return $password;
         }
     }
 }
+
+generatePassword();
 
 if (isset($_POST["order"])) {
     session_name ("aplikaceples");
@@ -30,7 +38,7 @@ if (isset($_POST["order"])) {
         $seats_text = $_POST["seats_text"];
 
         // Vytvoření hesla
-        $generatedPassword = generatePassword(4);
+        $generatedPassword = generatePassword();
 
         // Aktualizace dat v DB
         // 1. Zkontrolovat zda jsou skutečně volná
