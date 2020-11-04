@@ -65,8 +65,10 @@
     <?php
         session_name ("aplikaceples");
         session_start();
+        include("settings/settings.php");
         // Zkontrolování přihlášení
         if (isset($_SESSION['id']) && isset($_SESSION['nick'])) {
+            
             // Zadávání kódu
             if (isset($_SESSION['code_error'])) {
                 if ($_SESSION['code_error'] == true) {
@@ -80,10 +82,8 @@
                     $quantity = $_SESSION['code_seat_quantity'];
                     ?>
                     <script>
-                        const cena = 150;
-                        let quantity = <?php echo json_encode($quantity) ?>;
-                        let zaplatit = cena * quantity;
-                        //console.log("Spravný kód - " + zaplatit);
+                        let zaplatit = <?php echo json_encode($cost_per_ticket) ?> * 
+                                        <?php echo json_encode($quantity) ?>;
                         document.getElementById('to_pay').innerHTML = zaplatit;
                         document.getElementById('right_code').style.display='flex';
                     </script>
@@ -426,7 +426,7 @@
 
             <div class="order-form">
                 <br>
-                <input type="text" name="code" placeholder="- - - -" maxlength="4" style="width:150px; text-align: center; font-size:large;border: 1px solid #345995;" required>
+                <input type="text" name="code" placeholder="- - - - - -" maxlength=<?php echo json_encode($password_lenght) ?> style="width:150px; text-align: center; font-size:large;border: 1px solid #345995; text-transform:uppercase;" required>
                 <br><br><br>
                 <button class="submit-button" type="submit" name="code_submit"><i class="fas fa-keyboard" style="margin-right: 10px;"></i>Potvrdit</button>
             </div>

@@ -267,6 +267,7 @@
 
     <?php
         include("components/_access/mysqli_connect.php");
+        include("settings/settings.php");
 
         // Grafika
         class graphic
@@ -389,8 +390,6 @@
     ?>
 
     <script>
-        // Maximální počet vybraných sedadel
-        const max_number_of_selected_seats = 4;
 
         // Zobraz obsazenost
         const showOccupancy = getCookie("showOccupancy");
@@ -545,7 +544,7 @@
                         if (this.classList.contains("seat-free")) {
                             if (this.classList.contains("selected")) {
                                 this.classList.remove("selected");
-                            } else if (selected < max_number_of_selected_seats) {
+                            } else if (selected < <?php echo json_encode($max_number_of_selected_seats) ?>) {
                                 this.classList.add("selected");
                             }
                         }
