@@ -57,11 +57,12 @@ if(isset($_POST['save'])) {
     } else {
         echo "Chyba ve stolech.<br>";
     }
-    // Uložit stoly
+    // Uložit sedadla
     if(strlen($_POST['data_seats']) > 0) {
         $data_seats = $_POST['data_seats'];
         $jArray = json_decode($data_seats, true);
 
+        // Projdi všechna data
         for ($i = 0; $i < count($jArray); $i++) {
             $id = $jArray[$i]['id'];
             $state = $jArray[$i]['state'];
